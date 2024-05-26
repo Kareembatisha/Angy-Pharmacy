@@ -1,0 +1,36 @@
+.wood-text {
+  font-family: 'suitable villa';
+  background: url('https://i.imgur.com/OUyfQnt.jpg');
+  background-size: cover;
+  position: relative;
+  /* font-size: extra-large * 1.5; */
+  font-size: 40px;
+  text-transform: uppercase;
+  font-family: 'Rancho', cursive;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+}
+
+
+.icon{
+  color: #009d63;
+background-color: #e3fff5;
+border-radius: 50px;
+margin: auto;
+justify-content: center;
+}
+
+
+.cards:hover{
+color: #004d30;
+  text-shadow: 2px 2px 5px #009d63;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.title:hover{
+  text-shadow: 2px 2px 10px black;
+cursor: pointer;
+}

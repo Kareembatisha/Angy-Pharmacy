@@ -1,0 +1,52 @@
+.orderHistory {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 20px;
+
+}
+
+.ordhis{
+    min-height: 60vh;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #F82B00;
+    color: white;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #e9ecef;
+}
+
+.table tbody tr:hover {
+    background-color: #ced4da;
+}
+
+.table td div {
+    margin-bottom: 6px;
+}
+
+@media screen and (max-width: 768px) {
+    .table th,
+    .table td {
+        padding: 10px;
+    }
+}

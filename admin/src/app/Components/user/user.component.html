@@ -1,0 +1,65 @@
+<div class="container">
+  <h3 class="title text-center fw-bold mb-3" style="padding-bottom: 10px">
+    All Users
+  </h3>
+  <!-- Pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(1)">First</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(currentPage - 1)">
+          Previous
+        </button>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let page; ngForOf: getTotalPages(); let i = index"
+        [class.active]="currentPage === i + 1"
+      >
+        <button class="page-link" (click)="changePage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <button class="page-link" (click)="changePage(currentPage + 1)">
+          Next
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <button class="page-link" (click)="changePage(getTotalPages())">
+          Last
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of userdata; track users.id) {
+      <tr>
+        <th scope="row">{{ user._id.slice(0, 7) }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteeDoctor(user.email)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

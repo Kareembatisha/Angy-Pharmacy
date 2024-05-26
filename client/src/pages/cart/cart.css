@@ -1,0 +1,134 @@
+
+
+.CartItems{
+    margin: 100px 170px;
+}
+
+.CartItems hr{
+    height: 3px;
+    background: #e2e2e2;
+    border: 0;
+
+}
+
+.CartIt-format-main{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 75px;
+    padding: 20px 0px;
+    color: #454545;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.CartItems-format{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.CartIcon-product-icon{
+    height: 62px;
+}
+
+.CartItems-quantity{
+    width: 64px;
+    height: 50px;
+    border: 1px solid #e2e2e2;
+    background: white;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.CartItems-delete{
+    width: 15px;
+    margin: 0px 40px;
+    cursor: pointer;
+}
+
+
+.cartitems-down{
+    display: flex;
+    margin: 100px 0px;
+}
+
+.cartitems-total{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+    gap: 40px;
+}
+
+.cartitems-total-price{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+
+.cartitems-total button{
+    width: 262px;
+    height: 58px;
+    border: none;
+    outline: none;
+    background: red;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.cartitems-promocode{
+    flex:1;
+    font-size: 16px;
+    font-weight: 500;
+}
+.cartitems-promocode p{
+    color: #555;
+}
+
+
+.cartitems-promoBox{
+    width: 504px;
+    margin-top:15px ;
+    padding-left:20px ;
+    height: 55px;
+    background: #eaeaea;
+}
+
+.cartitems-promoBox input{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 20px;
+    width: 330px;
+    height: 50px;
+}
+
+.cartitems-promoBox button{
+    width: 150px;
+    height: 56px;
+    font-size: 16px;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+.CartItems-icons {
+    display: inline-flex;
+    align-items: center;
+}
+
+.CartItems-delete, .CartItems-add {
+    cursor: pointer;
+    margin-left: 10px; /* Adjust margin as needed */
+    /* width: 20px;
+    height: 20px; */
+}

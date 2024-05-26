@@ -1,0 +1,31 @@
+.sidebar {
+    width: 100%; /* Adjust width as needed */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+  }
+  
+  .sidebar img {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%; /* Make sidebar full width on small screens */
+    }
+  }
+  .sb-img{
+    transition: 0.8s;
+    border-radius: 10px;
+  }
+  .sb-img:hover{
+    scale: 1.3;
+  }
+  

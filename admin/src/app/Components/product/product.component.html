@@ -1,0 +1,328 @@
+<div class="container">
+  <h3 class="title text-center fw-bold mb-3" style="padding-bottom: 10px">
+    All Medicenes
+  </h3>
+  <!-- Pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(1)">First</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(currentPage - 1)">
+          Previous
+        </button>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let page; ngForOf: getTotalPages(); let i = index"
+        [class.active]="currentPage === i + 1"
+      >
+        <button class="page-link" (click)="changePage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <button class="page-link" (click)="changePage(currentPage + 1)">
+          Next
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <button class="page-link" (click)="changePage(getTotalPages())">
+          Last
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  @if(medicineJsonData.length !==0){
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Medicene Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">MfgDate</th>
+        <th scope="col">ExpDate</th>
+        <th scope="col">Company</th>
+        <th scope="col">ActiveSubstance</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(medicene of getCurrentPageMedicines() ; track medicine._id){
+      <tr>
+        <th scope="row">{{ medicene._id?.slice(0, 7) }}</th>
+        <td>{{ medicene.name }}</td>
+        <td>{{ medicene.category }}</td>
+        <td style="width: 108px">{{ medicene.mfgDate | date }}</td>
+        <td style="width: 108px">{{ medicene.expDate | date }}</td>
+        <td>{{ medicene.company }}</td>
+        <td>{{ medicene.activeSubstance }}</td>
+        <td><img src="{{ medicene.image }}" class="img-thumbnail" alt="" /></td>
+        <td>{{ medicene.price | currency:'EGP':true }}</td>
+        <td>{{ medicene.stock }}</td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="updateButton(medicene.name)"
+          >
+            Update
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteMedicene(medicene.name)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      } @empty {
+      <h3
+        class="text-center mt-3 mb-3 fw-bold"
+        style="padding-top: 100px; padding-bottom: 20px"
+      >
+        No Medicenes Available
+      </h3>
+      }
+    </tbody>
+  </table>
+  }
+
+  <h3
+    class="text-center mt-3 mb-3 fw-bold"
+    style="padding-top: 100px; padding-bottom: 20px"
+  >
+    {{ updateMode ? "update Medicene" : "Add New Medicene" }}
+  </h3>
+</div>
+
+<form
+  className="mt-5"
+  [formGroup]="addMediceneForm"
+  (ngSubmit)="updateMode ? updateMedicene() : addMedicene()"
+>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputProduct"
+      placeholder="Enter New Medicene Name"
+      required
+      formControlName="name"
+      [ngClass]="{
+        'is-invalid': name?.invalid && (name?.touched || name?.dirty)
+      }"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(name?.invalid &&(name?.touched || name?.dirty)){
+      @if(name?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> enter your medicene name.</span>
+      </div>
+      } }
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="file"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputImage"
+      placeholder="Select Image"
+      (change)="onSelectFile($event)"
+      required
+      formControlName="image"
+      [ngClass]="{
+        'is-invalid': image?.invalid && (image?.touched || image?.dirty)
+      }"
+    />
+
+    <div id="usernameHelp" class="form-text">
+      @if(image?.invalid &&(image?.touched || image?.dirty)){
+      @if(image?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> select image of medicene.</span>
+      </div>
+      } }
+    </div>
+  </div>
+  @if (!updateMode) {
+  <div class="form-group">
+    <input
+      type="date"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputmfgDate"
+      placeholder="Enter MfgDate"
+      required
+      formControlName="mfgDate"
+      [ngClass]="{
+        'is-invalid': mfgDate?.invalid && (mfgDate?.touched || mfgDate?.dirty)
+      }"
+      value="2024-03-01"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(mfgDate?.invalid &&(mfgDate?.touched || mfgDate?.dirty)){
+      @if(mfgDate?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> enter mfgDate.</span>
+      </div>
+      } }
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      type="date"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputexpDate"
+      placeholder="Enter ExpDate"
+      required
+      formControlName="expDate"
+      [ngClass]="{
+        'is-invalid': expDate?.invalid && (expDate?.touched || expDate?.dirty)
+      }"
+      value="2024-03-01"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(expDate?.invalid &&(expDate?.touched || expDate?.dirty)){
+      @if(expDate?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> enter expDate.</span>
+      </div>
+      } }
+    </div>
+  </div>
+  }
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputcompany"
+      placeholder="Enter Company"
+      required
+      formControlName="company"
+      [ngClass]="{
+        'is-invalid': company?.invalid && (company?.touched || company?.dirty)
+      }"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(company?.invalid &&(company?.touched || company?.dirty)){
+      @if(company?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> enter company name.</span>
+      </div>
+      } }
+    </div>
+  </div>
+  @if (!updateMode) {
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputactiveSubstance"
+      placeholder="Enter ActiveSubstance"
+      required
+      formControlName="activeSubstance"
+      [ngClass]="{
+        'is-invalid':
+          activeSubstance?.invalid &&
+          (activeSubstance?.touched || activeSubstance?.dirty)
+      }"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(activeSubstance?.invalid &&(activeSubstance?.touched ||
+      activeSubstance?.dirty)){ @if(activeSubstance?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold">
+          enter activeSubstance of medicene.</span
+        >
+      </div>
+      } }
+    </div>
+  </div>
+  <div class="form-group">
+    <select
+      class="form-select w-50 text-center m-auto mb-1"
+      aria-label="Default select example"
+      required
+      formControlName="category"
+      [ngClass]="{
+        'is-invalid':
+          category?.invalid && (category?.touched || category?.dirty)
+      }"
+    >
+      <option *ngFor="let name of categoryNames" [value]="name">
+        {{ name }}
+      </option>
+    </select>
+    <div id="usernameHelp" class="form-text">
+      @if(category?.invalid &&(category?.touched || category?.dirty)){
+      @if(category?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> select category.</span>
+      </div>
+      } }
+    </div>
+  </div>
+  }
+
+  <div class="form-group">
+    <input
+      type="number"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputEmail1"
+      placeholder="Enter Price"
+      required
+      formControlName="price"
+      [ngClass]="{
+        'is-invalid': price?.invalid && (price?.touched || price?.dirty)
+      }"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(price?.invalid &&(price?.touched || price?.dirty)){
+      @if(price?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> enter price.</span>
+      </div>
+      } }
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="number"
+      class="form-control w-50 text-center m-auto mb-1"
+      id="exampleInputStock"
+      placeholder="Enter Stock"
+      required
+      formControlName="stock"
+      [ngClass]="{
+        'is-invalid': stock?.invalid && (stock?.touched || stock?.dirty)
+      }"
+    />
+    <div id="usernameHelp" class="form-text">
+      @if(stock?.invalid &&(stock?.touched || stock?.dirty)){
+      @if(stock?.errors?.["required"] ){
+      <div class="text-center mb-2">
+        <span class="text-danger fw-bold"> enter number of stock .</span>
+      </div>
+      } }
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary btn-lg d-block m-auto w-25 mt-3"
+    [disabled]="
+      updateMode
+        ? !(name?.valid && company?.valid && price?.valid && stock?.valid)
+        : !addMediceneForm.valid
+    "
+  >
+    {{ updateMode ? "Update" : "Add" }}
+  </button>
+</form>

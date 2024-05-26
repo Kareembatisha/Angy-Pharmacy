@@ -1,0 +1,61 @@
+.icon{
+  font-size: 25px;
+  margin-right: 5px;
+}
+.pharmacy{
+  color: #009d63;
+}
+.products{
+  color: #009d63;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+
+#sidebar-wrapper .list-group {
+  width:15rem;
+}
+
+#page-content-wrapper {
+min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+cursor: pointer;
+}
+
+
+.sidebar-heading:hover{
+border-radius: 20px;
+}
+
+.list-group-item {
+border: none;
+padding: 30px 30px;
+}
+
+.list-group-item.active {
+font-weight: bold;
+}
+
+.list-group-item:hover {
+  text-shadow: 2px 2px 5px rgb(176, 171, 171);
+  background-color: #e3fff5;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+}

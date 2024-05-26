@@ -1,0 +1,41 @@
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.title:hover{
+  text-shadow: 2px 2px 10px black;
+  cursor: pointer;
+}
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  text-align: center;
+  margin: auto;
+font-weight: bold;
+/* padding: auto; */
+}
+
+.thead-dark th {
+  background-color:#009d63;
+  color: #fff;
+}
+
+/* Style the image thumbnail */
+.img-thumbnail {
+  max-width: 50px;
+  max-height: 50px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}

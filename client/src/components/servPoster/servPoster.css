@@ -1,0 +1,47 @@
+
+
+
+.servPoster{
+    height: 40vh;
+    background: linear-gradient(50deg, beige 0% , gold 60% , yellow ) ;
+    display: flex;
+    margin-top: 30px;
+    border-radius: 0px;
+}
+
+.serv-left{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    padding-left: 80px;
+    line-height: 1.1;
+}
+
+
+.serv-left p{
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    margin:40px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Add a slight shadow to make text stand out */
+}
+
+
+
+.serv-right{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.icon{
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    top: 200;
+    width: auto;
+    height: 80%;
+}

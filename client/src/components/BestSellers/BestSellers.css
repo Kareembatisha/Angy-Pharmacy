@@ -1,0 +1,80 @@
+/* slider.css */
+
+/* Container for the slider */
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 2rem;
+    left: 10%;
+}
+
+/* Styles for the slider images */
+.slider-image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px black solid; /* Add border-radius if needed */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    margin: 30px;
+}
+/* Apply scaling effect on hover */
+.slider-image:hover {
+    transform: scale(1.2); /* Scale up the image by 1.5 times on hover */
+}
+
+/* Styles for custom arrow components */
+.custom-next-arrow,
+.custom-prev-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1; /* Ensure the arrows appear above the slider */
+    cursor: pointer;
+    color: white; /* Button color */
+    background-color: white; /* Button background color */
+    padding: 10px 10px; /* Button padding */
+    border-radius: 50%; /* Circular button */
+    height: auto;
+    width: auto;
+}
+
+/* Positioning for next arrow */
+.custom-next-arrow {
+    right: -10vh;
+     /* Adjust as needed */
+}
+
+/* Positioning for previous arrow */
+.custom-prev-arrow {
+    left: -10vh; 
+    /* Adjust as needed */
+}
+.arrowImg{
+    height: 5vh;
+    width: auto;
+    background-color: white;
+}
+.BestSellers-header {
+    text-align: center;
+    margin-bottom: 100px; /* Adjust spacing as needed */
+    font-family: "Red Hat Mono", monospace;
+    font-size: 50px;
+    font-weight: 500; /* Adjust font size as needed */
+    position: relative; /* Ensure relative positioning for pseudo-element */
+}
+
+/* Styles for the silver line */
+.BestSellers-header::after {
+    content: ''; /* Required for pseudo-elements */
+    display: block; /* Ensure the pseudo-element takes up space */
+    width: 220px; /* Adjust width as needed */
+    height: 2px; /* Adjust thickness as needed */
+    background-color: rgba(192, 192, 192, 0.39); /* Adjust color as needed */
+    position: absolute; /* Position the line relative to the header */
+    bottom: -30px; /* Adjust position as needed */
+    left: 50%; /* Center the line horizontally */
+    transform: translateX(-50%); /* Center the line horizontally */
+}

@@ -1,0 +1,47 @@
+
+
+
+.categoryPoster{
+    height: 40vh;
+    background: linear-gradient(50deg,rgb(250, 255, 230) 0%, rgb(247, 193, 226) 60%,rgb(246, 226, 255)) ;
+    display: flex;
+    margin-top: 30px;
+    border-radius: 0px;
+}
+
+.category-left{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    padding-left: 80px;
+    line-height: 1.1;
+}
+
+
+.category-left p{
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    margin:40px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Add a slight shadow to make text stand out */
+}
+
+
+
+.category-right{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.icon{
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    top: 200;
+    width: auto;
+    height: 80%;
+}

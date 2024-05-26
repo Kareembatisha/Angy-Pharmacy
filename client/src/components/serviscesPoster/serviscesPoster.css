@@ -1,0 +1,48 @@
+
+
+.ServiscesPoster{
+    width: 65%;
+    height: 60vh;
+    display: flex;
+    margin: auto;
+    padding: 0px 140px;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    border-radius: 20px;
+    background: linear-gradient(180deg, aqua 0%, #e1ffea22 60%); 
+}
+
+
+.ServiscesPoster-left{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.ServiscesPoster-left h1{
+    color: #171717;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+
+.ServiscesPoster-left p{
+   color: #171717;
+   font-size: 20px;
+   font-weight: 500;
+}
+
+
+.ServiscesPoster-right{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+img{
+    width: 80%;
+    height: auto;
+}

@@ -1,0 +1,55 @@
+<div class="sidbar" id="sidebar-wrapper">
+  <div class="sidebar-heading py-4 primary-text fs-4 fw-bold text-uppercas">
+    <a href="" class="pharmacy text-decoration-none" routerLink="">
+      <i class="fas fa-clinic-medical me-2"></i>Doctor Angy
+    </a>
+  </div>
+  <div class="list-group list-group-flush my-3">
+    <!-- <a href="" class="list-group-item list-group-item-action fw-bold"  aria-current="page" routerLink='/dashboard'    >
+        <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+      </a> -->
+    <a
+      href=""
+      class="products list-group-item list-group-item-action fw-bold"
+      routerLink="/product"
+    >
+      <!-- <i class="fas fa-shopping-cart me-2"></i>Products -->
+      <i class="icon fa-solid fa-syringe"></i> Medicines
+    </a>
+    <a
+      href=""
+      class="list-group-item list-group-item-action fw-bold"
+      routerLink="/category"
+    >
+      <i class="icon fa-solid fa-layer-group"></i>Category
+    </a>
+    <a
+      href=""
+      class="list-group-item list-group-item-action fw-bold"
+      routerLink="/user"
+    >
+      <i class="icon fa-solid fa-user"></i> Users
+    </a>
+    <a
+      href=""
+      class="list-group-item list-group-item-action fw-bold"
+      routerLink="/order"
+    >
+      <i class="icon fas fa-shopping-cart me-2"></i> Orders
+    </a>
+    <!-- <a
+      href=""
+      class="list-group-item list-group-item-action fw-bold"
+      routerLink="/chat"
+    >
+      <i class="icon fa-brands fa-rocketchat"></i> Chat
+    </a> -->
+    <a
+      href=""
+      class="list-group-item list-group-item-action text-danger fw-bold"
+      (click)="changeState()"
+    >
+      <i class="icon fas fa-power-off me-2"></i>Logout
+    </a>
+  </div>
+</div>

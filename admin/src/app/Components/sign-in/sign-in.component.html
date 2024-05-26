@@ -1,0 +1,56 @@
+<div class="background-img">
+  <div class="overlay"></div>
+  <div class="form-container text-light">
+    <h1 class="text-center text-light text-bg-dark p-2">SignIn Form</h1>
+    <form class="w-100 h-100" [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Your sign-in form fields here -->
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+        <div id="emailHelp" class="form-text">
+          @if (email?.invalid&& (email?.dirty || email?.touched)) {
+          @if(email?.errors?.["pattern"]){
+          <span class="text-danger">Please enter a valid email address.</span>
+          } @else{
+          <span class="text-danger">Please enter your email address.</span>
+          } }
+          
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          formControlName="password"
+        />
+        <div id="passwordHelp" class="form-text">
+          @if (password?.invalid&& (password?.dirty || password?.touched)) {
+          @if(password?.errors?.["minlength"]){
+          <span class="text-danger"
+            >Password must be at least 7 characters long.</span
+          >
+          } @else{
+          <span class="text-danger">Please enter your password.</span>
+          } }
+        </div>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button class="btn btn-success btn-lg d-block m-auto" type="submit" [disabled]="!loginForm.valid">
+        Submit
+      </button>
+      <div>Don't have an account ?</div>
+      <button class="btn btn-primary" (click)="signUpUser()">Sign Up</button>
+    </form>
+  </div>
+</div>

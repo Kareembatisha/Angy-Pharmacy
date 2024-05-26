@@ -1,0 +1,90 @@
+<div class="container">
+  <h3 class="title text-center fw-bold mb-3" style="padding-bottom: 10px">
+    All orders
+  </h3>
+   <!-- Pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(1)">First</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="changePage(currentPage - 1)">
+          Previous
+        </button>
+      </li>
+      <li
+        class="page-item"
+        *ngFor="let page; ngForOf: getTotalPages(); let i = index"
+        [class.active]="currentPage === i + 1"
+      >
+        <button class="page-link" (click)="changePage(i + 1)">
+          {{ i + 1 }}
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <button class="page-link" (click)="changePage(currentPage + 1)">
+          Next
+        </button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === getTotalPages()">
+        <button class="page-link" (click)="changePage(getTotalPages())">
+          Last
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  @if(orderData.length !== 0){
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Email</th>
+
+        <th scope="col">items</th>
+        <th scope="col">address</th>
+        <th scop="col">total</th>
+        <th scop="col">status</th>
+        <th scop="col">Confirm</th>
+        <th scop="col">Deniy</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of orderData; track order.id) {
+        @if (order.status==='pending') {
+      <tr>
+        <th scope="row">{{ order._id.slice(0, 7) }}</th>
+        <td>{{ order.customerEmail }}</td>
+        <td>
+         <!-- Iterate over order.items array to display each item -->
+          <ul>
+            @for (item of order.items; track item.id) {
+            <li>{{ item.name }} - Quantity: {{ item.quantity }}</li>
+            }
+          </ul>
+        </td>
+        <td>
+          {{ order.address }}
+        </td>
+        <td>
+          {{ order.total }}
+        </td>
+        <td>
+          {{ order.status }}
+        </td>
+
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="acceptorder(order._id)">Confirm</button>
+        </td>
+
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="cancelOrder(order._id)">Deny</button>
+        </td>
+      </tr>
+      }
+    }
+    </tbody>
+  </table>
+  }
+</div>

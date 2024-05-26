@@ -1,0 +1,29 @@
+.category-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.255);
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.category-name {
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.category-link {
+    text-decoration: none;
+    color: black;
+}
+
+.category-link:hover .category-image {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.8s;
+    transform: scale(1.1);
+}
+.cards-cont{
+    width: 80%;
+    margin-left: 10%;
+}

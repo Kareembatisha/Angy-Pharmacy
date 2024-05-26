@@ -1,0 +1,66 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-us {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .about-us h2 {
+    color: #333;
+  }
+  
+  .about-us p {
+    color: #666;
+    text-align: left;
+  }
+  
+  .about-image {
+    width: 50%;
+  }
+  
+  li{
+    font-weight: 700;
+    font-size: 30px;
+    margin-top: 25px;
+  }
+  
+  .Card{
+    margin-bottom: 50px;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .info-section {
+    flex: 1;
+    margin-right: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-section h3 {
+    color: #333;
+  }
+  
+  .info-section p {
+    color: #666;
+  }
+  
+  

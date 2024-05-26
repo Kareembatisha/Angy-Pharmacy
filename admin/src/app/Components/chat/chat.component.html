@@ -1,0 +1,52 @@
+<!-- <div class="container">
+  <h3 class="title text-center fw-bold mb-3" style="padding-bottom: 10px">
+    All orders
+  </h3>
+
+  @if(messagedata.length !== 0){
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Email</th>
+
+        <th scope="col">message</th>
+        <th scope="col">status</th>
+
+        <th scop="col">Answer</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (message of messagedata; track message.id) {
+      <tr>
+        <th scope="row">{{ message._id.slice(0, 7) }}</th>
+        <td>{{ message.customerEmail }}</td>
+        <td>
+          {{ message.message }}
+        </td>
+        <td>
+          {{ message.status }}
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="answer(message._id)">
+            Answer
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
+  <form [formGroup]="messageForm">
+    <div class="form-group my-4">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea
+        class="form-control"
+        formControlName="message"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+      <button class="btn btn-primary btn-sm my-3">submit</button>
+    </div>
+  </form>
+</div> -->

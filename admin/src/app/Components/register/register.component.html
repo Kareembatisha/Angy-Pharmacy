@@ -1,0 +1,80 @@
+<div class="background-img">
+  <div class="overlay"></div>
+  <!-- Move overlay outside the form-container -->
+  <div class="form-container text-light">
+    <h1 class="text-center text-light text-bg-dark p-2">SignUp Form</h1>
+    <form
+      class="w-100 h-100"
+      [formGroup]="registerForm"
+      (ngSubmit)="register()"
+    >
+      <!-- Your sign-in form fields here -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="name"
+        />
+        <div id="usernameHelp" class="form-text">
+          @if(name?.invalid &&(name?.touched || name?.dirty)){
+          @if(name?.errors?.["minlength"]){
+          <span class="text-danger"
+            >Username must be at least 6 characters long.</span
+          >
+          }@else {
+          <span class="text-danger">Please enter your username.</span>
+          } }
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+        <div id="emailHelp" class="form-text">
+          @if (email?.invalid&& (email?.dirty || email?.touched)) {
+          @if(email?.errors?.["pattern"]){
+          <span class="text-danger">Please enter a valid email address.</span>
+          } @else{
+          <span class="text-danger">Please enter your email address.</span>
+          } }
+        </div>
+      </div>
+      <div id="emailHelp" class="form-text">
+        We'll never share your email with anyone else.
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          formControlName="password"
+        />
+        <div id="passwordHelp" class="form-text">
+          @if (password?.invalid&& (password?.dirty || password?.touched)) {
+          @if(password?.errors?.["minlength"]){
+          <span class="text-danger"
+            >Password must be at least 7 characters long.</span
+          >
+          } @else{
+          <span class="text-danger">Please enter your password.</span>
+          } }
+        </div>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <button class="btn btn-success btn-lg d-block m-auto" [disabled]="!registerForm.valid">Submit</button>
+      </div>
+      <div>Already have an account?</div>
+      <button class="btn btn-primary mt-1" (click)="signIn()">Login</button>
+    </form>
+  </div>
+</div>
